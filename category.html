@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Css/category.css">
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            
+        }
+
+      
+        .sidebar {
+      width: 250px;
+      background-color: #1b3d5f;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      position: fixed;
+      height: 100%;
+      top: 0;
+      left: 0;
+      color: white;
+    }
+    
+    .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            display: block;
+            font-size: 18px;
+            }
+    
+    
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+    
+        .logo svg {
+            width: 100px;
+            height: 100px;
+        }
+    
+        .logo-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-top: 10px;
+        }
+    
+        .menu-section {
+            padding-left: 20px;
+        }
+    
+        .menu-section h3 {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+    
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+    
+        .menu-item i {
+            margin-right: 15px;
+            font-size: 20px;
+        }
+    
+        .menu-item:hover {
+            background-color: #444;
+        }
+    
+        .menu-item a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+    
+        
+        .main-content {
+            margin-left: 250px; 
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+         
+            <div class="logo">
+                <svg width="100" height="100" viewBox="0 0 129 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M86.8467 11.5997H42.1533C22.74 11.5997 11.1667 23.173 11.1667 42.5863V87.2263C11.1667 106.693 22.74 118.266 42.1533 118.266H86.7933C106.207 118.266 117.78 106.693 117.78 87.2797V42.5863C117.833 23.173 106.26 11.5997 86.8467 11.5997ZM41.1933 97.733C41.1933 99.9197 39.38 101.733 37.1933 101.733C35.0067 101.733 33.1933 99.9197 33.1933 97.733V86.693C33.1933 84.5063 35.0067 82.693 37.1933 82.693C39.38 82.693 41.1933 84.5063 41.1933 86.693V97.733ZM68.5 97.733C68.5 99.9197 66.6867 101.733 64.5 101.733C62.3133 101.733 60.5 99.9197 60.5 97.733V75.5997C60.5 73.413 62.3133 71.5997 64.5 71.5997C66.6867 71.5997 68.5 73.413 68.5 75.5997V97.733ZM95.8067 97.733C95.8067 99.9197 93.9933 101.733 91.8067 101.733C89.62 101.733 87.8067 99.9197 87.8067 97.733V64.5597C87.8067 62.373 89.62 60.5597 91.8067 60.5597C93.9933 60.5597 95.8067 62.373 95.8067 64.5597V97.733ZM95.8067 47.7063C95.8067 49.893 93.9933 51.7063 91.8067 51.7063C89.62 51.7063 87.8067 49.893 87.8067 47.7063V42.533C74.2067 56.5063 57.1933 66.373 38.1533 71.1197C37.8333 71.2263 37.5133 71.2263 37.1933 71.2263C35.38 71.2263 33.78 69.9997 33.3 68.1863C32.7667 66.053 34.0467 63.8663 36.2333 63.333C54.2067 58.853 70.2067 49.413 82.9 36.0797H76.2333C74.0467 36.0797 72.2333 34.2663 72.2333 32.0797C72.2333 29.893 74.0467 28.0797 76.2333 28.0797H91.86C92.0733 28.0797 92.2333 28.1863 92.4467 28.1863C92.7133 28.2397 92.98 28.2397 93.2467 28.3463C93.5133 28.453 93.7267 28.613 93.9933 28.773C94.1533 28.8797 94.3133 28.933 94.4733 29.0397C94.5267 29.093 94.5267 29.1463 94.58 29.1463C94.7933 29.3597 94.9533 29.573 95.1133 29.7863C95.2733 29.9997 95.4333 30.1597 95.4867 30.373C95.5933 30.5863 95.5933 30.7997 95.6467 31.0663C95.7 31.333 95.8067 31.5997 95.8067 31.9197C95.8067 31.973 95.86 32.0263 95.86 32.0797V47.7063H95.8067Z" fill="#2CD7AE"/>
+                </svg>
+                <div class="logo-name">Track My Cash</div>
+            </div>
+
+            
+            <div class="menu-section">
+                <h3>Manage</h3>
+                <div class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <a href="Dashboard.html">Dashboard</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-exchange-alt"></i>
+                    <a href="transaction.html">Transactions</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <a href="report.html">Reports</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-tags"></i>
+                    <a href="category.html">Categories</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-wallet"></i>
+                    <a href="budget.html">Budget</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <a href="receipts.html">Receipts</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-bullseye"></i>
+                    <a href="goals.html">Goals</a>
+                </div>
+            </div>
+
+            <!-- Preferences Section -->
+            <div class="menu-section">
+                <h3>Preferences</h3>
+                <div class="menu-item">
+                    <i class="fas fa-bell"></i>
+                    <a href="notification.html">Notifications</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <a href="settings.html">Settings</a>
+                </div>
+            </div>
+        </aside>
+
+
+        <main class="main-content">
+            <section class="categories">
+                <div class="header">
+                    <h1>Categories</h1>
+                    <button class="add-category-btn" onclick="showForm()">+ Add Category</button>
+                </div>
+
+                <div class="category-list" id="category-list">
+                  
+                </div>
+            </section>
+        </main>
+    </div>
+
+   
+    <div id="add-category-form" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="hideForm()">&times;</span>
+            <h2>Add New Category</h2>
+            <form id="category-form">
+                <select id="category-type" required>
+                    <option value="income">Income Categories</option>
+                    <option value="expense">Expense Categories</option>
+                </select>
+                <label for="category-name">Category Name</label>
+                <input type="text" id="category-name" required>
+                <button type="submit">Add Category</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showForm() {
+            document.getElementById('add-category-form').style.display = 'block';
+        }
+
+        function hideForm() {
+            document.getElementById('add-category-form').style.display = 'none';
+        }
+
+        document.getElementById('category-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const categoryType = document.getElementById('category-type').value;
+            const categoryName = document.getElementById('category-name').value;
+
+            if (categoryType && categoryName) {
+                fetch('/api/categories', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: categoryName,
+                        type: categoryType
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Category added successfully') {
+                        addCategoryToUI(categoryName, categoryType, data.id);
+                        hideForm();
+                    } else {
+                        console.error('Error adding category:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        });
+
+        function addCategoryToUI(name, type, id) {
+            const categoryList = document.getElementById('category-list');
+            let categorySection = document.querySelector(`.category-section[data-type="${type}"]`);
+
+            if (!categorySection) {
+                categorySection = document.createElement('div');
+                categorySection.classList.add('category-section');
+                categorySection.setAttribute('data-type', type);
+
+                const sectionTitle = document.createElement('h2');
+                sectionTitle.textContent = `${capitalizeFirstLetter(type)} Categories`;
+                categorySection.appendChild(sectionTitle);
+                categoryList.appendChild(categorySection);
+            }
+
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('category');
+            categoryDiv.setAttribute('data-id', id);
+            categoryDiv.innerHTML = `
+                <span>${name}</span>
+                <div class="category-buttons">
+                    <button class="edit-btn" onclick="editCategory(${id})"><i class="fas fa-pen"></i></button>
+                    <button class="delete-btn" onclick="deleteCategory(${id})"><i class="fas fa-trash"></i></button>
+                </div>
+            `;
+            categorySection.appendChild(categoryDiv);
+
+            let categories = JSON.parse(localStorage.getItem('categories')) || [];
+            categories.push(name);
+            localStorage.setItem('categories', JSON.stringify(categories));
+
+            updateBudgetDropdown();
+        }
+
+        function editCategory(id) {
+            const categoryName = prompt('Enter new category name:');
+            if (categoryName) {
+                fetch(`/api/categories/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name: categoryName })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Category updated successfully') {
+                        const categoryDiv = document.querySelector(`.category[data-id="${id}"]`);
+                        categoryDiv.querySelector('span').textContent = categoryName;
+
+                        let categories = JSON.parse(localStorage.getItem('categories')) || [];
+                        const index = categories.indexOf(categoryDiv.querySelector('span').textContent);
+                        if (index > -1) {
+                            categories[index] = categoryName;
+                            localStorage.setItem('categories', JSON.stringify(categories));
+                        }
+
+                        updateBudgetDropdown();
+                    } else {
+                        console.error('Error updating category:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        }
+
+        function deleteCategory(id) {
+            if (confirm('Are you sure you want to delete this category?')) {
+                fetch(`/api/categories/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Category deleted successfully') {
+                        const categoryDiv = document.querySelector(`.category[data-id="${id}"]`);
+                        categoryDiv.parentElement.removeChild(categoryDiv);
+
+                        let categories = JSON.parse(localStorage.getItem('categories')) || [];
+                        categories = categories.filter(category => category !== categoryDiv.querySelector('span').textContent);
+                        localStorage.setItem('categories', JSON.stringify(categories));
+
+                        updateBudgetDropdown();
+                    } else {
+                        console.error('Error deleting category:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function fetchCategories() {
+            fetch('/api/categories')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(category => {
+                        addCategoryToUI(category.name, category.type, category.id);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching categories:', error);
+                });
+        }
+
+        function updateBudgetDropdown() {
+            const datalist = document.getElementById('categoryList');
+            const categories = JSON.parse(localStorage.getItem('categories')) || [];
+
+            datalist.innerHTML = '';
+
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                datalist.appendChild(option);
+            });
+        }
+
+        window.onload = function() {
+            fetchCategories();
+            updateBudgetDropdown();
+        };
+    </script>
+    <script src="category.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Css/transaction_details.css">
+    <title>Transaction Details</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.10/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    
+    
+    <div class="content">
+        <div class="header">
+            <h2>Transaction Details</h2>
+            <div class="button-group">
+                <a href="report.html" class="overview-btn"><i class="fas fa-chart-line"></i> Overview</a>
+                <button class="download-btn" id="download-csv"><i class="fas fa-download"></i> Download CSV</button>
+                <button class="download-btn" id="download-pdf"><i class="fas fa-file-pdf"></i> Download PDF</button>
+            </div>
+        </div>
+        
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Income</th>
+                    <th>Expense</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function formatDate(dateString) {
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        fetch('/get-transactions')
+            .then(response => response.json())
+            .then(transactions => {
+                const tableBody = document.querySelector('.transaction-table tbody');
+
+                tableBody.innerHTML = '';
+
+                let totalIncome = 0;
+                let totalExpense = 0;
+                let runningTotal = 0; 
+
+                transactions.forEach(transaction => {
+                    const row = document.createElement('tr');
+                    const amount = parseFloat(transaction.price);
+                    const formattedDate = formatDate(transaction.date); 
+
+                    if (transaction.type === 'Income') {
+                        totalIncome += amount;
+                        runningTotal += amount; 
+                        row.innerHTML = `
+                            <td>${formattedDate}</td> <!-- Use the formatted date -->
+                            <td>${transaction.name}</td>
+                            <td>${transaction.type}</td>
+                            <td>${transaction.description}</td>
+                            <td class="income">LKR ${amount.toFixed(2)}</td>
+                            <td class="expense">LKR 0.00</td>
+                            <td>LKR ${runningTotal.toFixed(2)}</td> 
+                        `;
+                    } else if (transaction.type === 'Expense') {
+                        totalExpense += amount;
+                        runningTotal -= amount; 
+                        row.innerHTML = `
+                            <td>${formattedDate}</td> <!-- Use the formatted date -->
+                            <td>${transaction.name}</td>
+                            <td>${transaction.type}</td>
+                            <td>${transaction.description}</td>
+                            <td class="income">LKR 0.00</td>
+                            <td class="expense">LKR ${amount.toFixed(2)}</td>
+                            <td>LKR ${runningTotal.toFixed(2)}</td>
+                        `;
+                    }
+
+                    tableBody.appendChild(row);
+                });
+
+                const totalRow = document.createElement('tr');
+                totalRow.classList.add('total-row');
+                totalRow.innerHTML = `
+                    <td colspan="4">Total</td>
+                    <td class="income">LKR ${totalIncome.toFixed(2)}</td>
+                    <td class="expense">LKR ${totalExpense.toFixed(2)}</td>
+                    <td>LKR ${runningTotal.toFixed(2)}</td> <!-- Overall total -->
+                `;
+                tableBody.appendChild(totalRow);
+            })
+            .catch(err => console.error('Error fetching transactions:', err));
+
+        function downloadCSV() {
+            fetch('/get-transactions')
+                .then(response => response.json())
+                .then(transactions => {
+                    const csvRows = [];
+                    const headers = ['Date', 'Name', 'Category', 'Description', 'Income', 'Expense', 'Total'];
+                    csvRows.push(headers.join(','));
+
+                    let totalIncome = 0;
+                    let totalExpense = 0;
+                    let runningTotal = 0;
+
+                    transactions.forEach(transaction => {
+                        const amount = parseFloat(transaction.price);
+                        const formattedDate = formatDate(transaction.date); 
+
+                        if (transaction.type === 'Income') {
+                            totalIncome += amount;
+                            runningTotal += amount;
+                        } else if (transaction.type === 'Expense') {
+                            totalExpense += amount;
+                            runningTotal -= amount;
+                        }
+
+                        const row = [
+                            formattedDate, 
+                            transaction.name,
+                            transaction.type,
+                            transaction.description,
+                            transaction.type === 'Income' ? `LKR ${amount.toFixed(2)}` : 'LKR 0.00',
+                            transaction.type === 'Expense' ? `LKR ${amount.toFixed(2)}` : 'LKR 0.00',
+                            `LKR ${runningTotal.toFixed(2)}`,
+                        ];
+                        csvRows.push(row.join(','));
+                    });
+
+                    const csvString = csvRows.join('\n');
+                    const blob = new Blob([csvString], { type: 'text/csv' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'transactions.csv';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                })
+                .catch(err => console.error('Error fetching transactions for CSV:', err));
+        }
+
+        function downloadPDF() {
+            fetch('/get-transactions')
+                .then(response => response.json())
+                .then(transactions => {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+                    doc.setFontSize(12);
+
+                    
+                    doc.text('Transaction Details', 14, 16);
+
+                    let totalIncome = 0;
+                    let totalExpense = 0;
+                    let runningTotal = 0;
+
+                    const pdfRows = transactions.map(transaction => {
+                        const amount = parseFloat(transaction.price);
+                        const formattedDate = formatDate(transaction.date);
+
+                        if (transaction.type === 'Income') {
+                            totalIncome += amount;
+                            runningTotal += amount;
+                        } else if (transaction.type === 'Expense') {
+                            totalExpense += amount;
+                            runningTotal -= amount;
+                        }
+
+                        return [
+                            formattedDate, 
+                            transaction.name,
+                            transaction.type,
+                            transaction.description,
+                            transaction.type === 'Income' ? `LKR ${amount.toFixed(2)}` : 'LKR 0.00',
+                            transaction.type === 'Expense' ? `LKR ${amount.toFixed(2)}` : 'LKR 0.00',
+                            `LKR ${runningTotal.toFixed(2)}`, 
+                        ];
+                    });
+
+                    doc.autoTable({
+                        head: [['Date', 'Name', 'Category', 'Description', 'Income', 'Expense', 'Total']],
+                        body: pdfRows,
+                        startY: 20,
+                    });
+
+                    doc.save('transactions.pdf');
+                })
+                .catch(err => console.error('Error fetching transactions for PDF:', err));
+        }
+
+        document.getElementById('download-csv').addEventListener('click', downloadCSV);
+        document.getElementById('download-pdf').addEventListener('click', downloadPDF);
+    </script>
+</body>
+</html>

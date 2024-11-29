@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+
+.content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.overview-btn,
+.download-btn {
+    background-color: #d6e5f3;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* No underline */
+}
+
+.overview-btn:hover,
+.download-btn:hover {
+    opacity: 0.9;
+}
+
+.overview-btn i,
+.download-btn i {
+    margin-right: 5px;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+}
+
+.transaction-table th,
+.transaction-table td {
+    border: 1px solid #0d0a0a;
+    padding: 8px;
+    text-align: left;
+
+}
+
+.transaction-table th {
+    background-color: #d6e5f3;
+}
+
+.transaction-table .income {
+    background-color: #e6ffe6;
+    color: green;
+}
+
+.transaction-table .expense {
+    background-color: #ffe6e6;
+    color: red;
+}
+
+.transaction-table .total-row {
+    font-weight: bold;
+    background-color: #d6e5f3;
+}

@@ -1,0 +1,366 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.menu-item i {
+    color: #2CD7AE; 
+}
+
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+nav ul li a {
+    color: #ECF0F1;
+    text-decoration: none;
+    display: block;
+}
+
+nav ul li.active {
+    background-color: #34495E;
+}
+
+.user-profile {
+    padding: 20px;
+    text-align: center;
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-email {
+    color: #BDC3C7;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-options {
+    display: flex;
+    align-items: center;
+}
+
+.filter-options select,
+.filter-options button {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #d6e5f3;
+    border: none;
+    border-radius: 5px;
+}
+
+#transactionList {
+    margin-top: 20px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.transaction-item .details select {
+    padding: 5px;
+    background-color: #d6e5f3;
+    border: none;
+    border-radius: 5px;
+}
+
+.transaction-item .details span {
+    font-size: 14px;
+    color: #4b6078;
+}
+.transaction-item .date {
+    font-weight: bold;
+}
+
+.transaction-item .details {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.transaction-item .amount {
+    font-weight: bold;
+    padding-right:1rem;
+    font-size: 16px;
+}
+
+.transaction-item .amount.negative {
+    color: #E74C3C;
+}
+
+.transaction-item .amount.positive {
+    color: #2ECC71;
+}
+
+.transaction-item .actions {
+    display: flex;
+    align-items: center;
+}
+
+.transaction-item .actions .edit-btn {
+    background: none;
+    border: none;
+    color: #3498DB;
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.popup-content .type-button[data-type="income"] {
+    background-color: #2ECC71;
+}
+
+.popup-content .type-button[data-type="expense"] {
+    background-color: #E74C3C;
+}
+
+.popup-content .type-button[data-type="saving"] {
+    background-color: #F39C12;
+}
+
+.popup-content .type-button[data-type="debt"] {
+    background-color: #9B59B6;
+}
+
+#expenseForm label,
+#incomeForm label,
+#savingForm label,
+#debtForm label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#expenseForm input,
+#incomeForm input,
+#savingForm input,
+#debtForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#expenseForm button,
+#incomeForm button,
+#savingForm button,
+#debtForm button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498DB;
+    color: #fff;
+    cursor: pointer;
+}
+
+#expenseForm button:hover,
+#incomeForm button:hover,
+#savingForm button:hover,
+#debtForm button:hover {
+    background-color: #2980B9;
+}
+
+
+
+.transaction-item .description {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 300px; /* Adjust as needed */
+}
+
+.transaction-item .description.expanded {
+    white-space: normal;
+}
+
+.transaction-item .toggle-description {
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+
+
+
+.transaction-item .description {
+    display: inline;
+    background-color: #d6e5f3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 250px; 
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.transaction-item .description.expanded {
+    white-space: normal;
+}
+
+.transaction-item .toggle-description {
+    font-size: 16px;
+    color: #080808;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.transaction-item .actions .edit-btn {
+   
+    color: #080808;
+    cursor: pointer;
+    border-color: #080808;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.transaction-item .actions .edit-btn i {
+    margin: 0;
+}
+.transaction-item .actions .delete-btn {
+    color: #080808;
+    cursor: pointer;
+    margin-left: 10px; 
+    font-size: 16px; 
+    background-color: transparent; 
+    border: none; 
+    outline: none; 
+}
+
+
+.transaction-item .actions .delete-btn i {
+    margin: 0;
+}
+
+
+#editTransactionForm {
+    background-color: #f9f9f9; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0; 
+    width: 100%; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+#editTransactionForm input,
+#editTransactionForm input,
+#editTransactionForm input{
+    width: calc(100% - 22px); 
+    padding: 10px; 
+    margin: 10px 0; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 14px; 
+}
+
+#editTransactionForm button,
+#editTransactionForm button{
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 10px 15px; 
+    margin-top: 10px; 
+    cursor: pointer;
+    font-size: 14px; 
+}
+
+
+#editTransactionForm button[type="submit"]:hover {
+    background-color: #45a049; 
+}
+
+
+#editTransactionForm button[type="button"] {
+    background-color: #f44336; 
+}
+
+
+#editTransactionForm button[type="button"]:hover {
+    background-color: #e53935; 
+}

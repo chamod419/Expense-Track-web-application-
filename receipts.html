@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Css/receipts.css">
+    <title>Receipts</title>
+</head>
+<body>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+      width: 250px;
+      background-color: #1b3d5f;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      position: fixed;
+      height: 100%;
+      top: 0;
+      left: 0;
+      color: white;
+    }
+    
+    .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            display: block;
+            font-size: 18px;
+            }
+    
+    
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+    
+        .logo svg {
+            width: 100px;
+            height: 100px;
+        }
+    
+        .logo-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-top: 10px;
+        }
+    
+        .menu-section {
+            padding-left: 20px;
+        }
+    
+        .menu-section h3 {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+    
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+    
+        .menu-item i {
+            margin-right: 15px;
+            font-size: 20px;
+        }
+    
+        .menu-item:hover {
+            background-color: #444;
+        }
+    
+        .menu-item a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+    
+        
+        .main-content {
+            margin-left: 250px; 
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- Logo -->
+            <div class="logo">
+                <svg width="100" height="100" viewBox="0 0 129 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M86.8467 11.5997H42.1533C22.74 11.5997 11.1667 23.173 11.1667 42.5863V87.2263C11.1667 106.693 22.74 118.266 42.1533 118.266H86.7933C106.207 118.266 117.78 106.693 117.78 87.2797V42.5863C117.833 23.173 106.26 11.5997 86.8467 11.5997ZM41.1933 97.733C41.1933 99.9197 39.38 101.733 37.1933 101.733C35.0067 101.733 33.1933 99.9197 33.1933 97.733V86.693C33.1933 84.5063 35.0067 82.693 37.1933 82.693C39.38 82.693 41.1933 84.5063 41.1933 86.693V97.733ZM68.5 97.733C68.5 99.9197 66.6867 101.733 64.5 101.733C62.3133 101.733 60.5 99.9197 60.5 97.733V75.5997C60.5 73.413 62.3133 71.5997 64.5 71.5997C66.6867 71.5997 68.5 73.413 68.5 75.5997V97.733ZM95.8067 97.733C95.8067 99.9197 93.9933 101.733 91.8067 101.733C89.62 101.733 87.8067 99.9197 87.8067 97.733V64.5597C87.8067 62.373 89.62 60.5597 91.8067 60.5597C93.9933 60.5597 95.8067 62.373 95.8067 64.5597V97.733ZM95.8067 47.7063C95.8067 49.893 93.9933 51.7063 91.8067 51.7063C89.62 51.7063 87.8067 49.893 87.8067 47.7063V42.533C74.2067 56.5063 57.1933 66.373 38.1533 71.1197C37.8333 71.2263 37.5133 71.2263 37.1933 71.2263C35.38 71.2263 33.78 69.9997 33.3 68.1863C32.7667 66.053 34.0467 63.8663 36.2333 63.333C54.2067 58.853 70.2067 49.413 82.9 36.0797H76.2333C74.0467 36.0797 72.2333 34.2663 72.2333 32.0797C72.2333 29.893 74.0467 28.0797 76.2333 28.0797H91.86C92.0733 28.0797 92.2333 28.1863 92.4467 28.1863C92.7133 28.2397 92.98 28.2397 93.2467 28.3463C93.5133 28.453 93.7267 28.613 93.9933 28.773C94.1533 28.8797 94.3133 28.933 94.4733 29.0397C94.5267 29.093 94.5267 29.1463 94.58 29.1463C94.7933 29.3597 94.9533 29.573 95.1133 29.7863C95.2733 29.9997 95.4333 30.1597 95.4867 30.373C95.5933 30.5863 95.5933 30.7997 95.6467 31.0663C95.7 31.333 95.8067 31.5997 95.8067 31.9197C95.8067 31.973 95.86 32.0263 95.86 32.0797V47.7063H95.8067Z" fill="#2CD7AE"/>
+                </svg>
+                <div class="logo-name">Track My Cash</div>
+            </div>
+
+            <!-- Manage Section -->
+            <div class="menu-section">
+                <h3>Manage</h3>
+                <div class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <a href="Dashboard.html">Dashboard</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-exchange-alt"></i>
+                    <a href="transaction.html">Transactions</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <a href="report.html">Reports</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-tags"></i>
+                    <a href="category.html">Categories</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-wallet"></i>
+                    <a href="budget.html">Budget</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <a href="receipts.html">Receipts</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-bullseye"></i>
+                    <a href="goals.html">Goals</a>
+                </div>
+            </div>
+
+            <!-- Preferences Section -->
+            <div class="menu-section">
+                <h3>Preferences</h3>
+                <div class="menu-item">
+                    <i class="fas fa-bell"></i>
+                    <a href="notification.html">Notifications</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <a href="settings.html">Settings</a>
+                </div>
+            </div>
+        </aside>
+   
+    <div class="main-content">
+        <div class="container">
+            <div class="header">
+                <h1>Receipts</h1>
+                <button id="addReceiptBtn" class="add-receipt-btn">Add Receipt</button>
+            </div>
+        
+            <div class="card-container"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="receiptModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="receiptForm" enctype="multipart/form-data">
+            <h2 id="modalTitle">Add Receipt</h2>
+            <input type="text" id="receiptName" name="name" placeholder="Receipt Name" required>
+            <input type="number" id="receiptPrice" name="price" placeholder="Price" step="0.01" required>
+            <input type="date" id="receiptDate" name="date" required>
+            <input type="file" id="receiptImage" name="image" accept="image/*">
+            <button type="submit">Save Receipt</button>
+        </form>
+    </div>
+</div>
+
+<script>
+
+document.getElementById("addReceiptBtn").onclick = function() {
+    document.getElementById("receiptForm").reset();
+    document.getElementById("modalTitle").innerText = "Add Receipt";
+    document.getElementById("receiptModal").style.display = "block";
+    document.getElementById("receiptForm").setAttribute('data-mode', 'add'); 
+};
+
+
+document.getElementById("receiptForm").onsubmit = function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this); 
+    const mode = this.getAttribute('data-mode'); 
+
+    if (mode === 'add') {
+        
+        fetch('http://localhost:3000/add-receipt', {
+            method: 'POST',
+            body: formData 
+        })
+        .then(handleResponse)
+        .then(data => {
+            alert("Receipt added!");
+            document.getElementById("receiptModal").style.display = "none";
+            fetchReceipts(); 
+        })
+        .catch(error => {
+            console.error('Error adding receipt:', error);
+            alert('Error adding receipt: ' + error.message);
+        });
+    } else {
+        
+        const id = this.getAttribute('data-id'); 
+        formData.append('id', id); 
+
+        fetch(`http://localhost:3000/receipts/${id}`, {
+            method: 'PUT',
+            body: formData 
+        })
+        .then(handleResponse)
+        .then(data => {
+            alert("Receipt updated!");
+            document.getElementById("receiptModal").style.display = "none";
+            fetchReceipts(); 
+        })
+        .catch(error => {
+            console.error('Error updating receipt:', error);
+            alert('Error updating receipt: ' + error.message);
+        });
+    }
+};
+
+
+window.onload = function() {
+    fetchReceipts();
+};
+
+
+function fetchReceipts() {
+    fetch('http://localhost:3000/receipts')
+        .then(handleResponse)
+        .then(data => {
+            const cardContainer = document.querySelector('.card-container');
+            cardContainer.innerHTML = ''; 
+            data.forEach(receipt => {
+                const card = document.createElement('div');
+                card.classList.add('receipt-card');
+                card.innerHTML = `
+                    <div class="receipt-image">
+                      <img src="${receipt.image}" alt="Receipt Image">
+                    </div>
+                    <div class="receipt-info">
+                        <h3>${receipt.name}</h3>
+                        <p>$${receipt.price}</p>
+                        <p>Date: ${receipt.date}</p> 
+                    </div>
+                    <div class="actions">
+                        <button class="edit-btn" onclick="editReceipt(${receipt.id})">Edit</button>
+                        <button class="delete-btn" onclick="deleteReceipt(${receipt.id})">Delete</button>
+                    </div>
+                `;
+                cardContainer.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching receipts:', error);
+            alert('Error fetching receipts: ' + error.message);
+        });
+}
+
+
+
+function editReceipt(id) {
+    fetch(`http://localhost:3000/receipts/${id}`)
+        .then(handleResponse)
+        .then(receipt => {
+            document.getElementById("receiptName").value = receipt.name;
+            document.getElementById("receiptPrice").value = receipt.price;
+            document.getElementById("receiptDate").value = receipt.date;
+            document.getElementById("modalTitle").innerText = "Edit Receipt";
+            document.getElementById("receiptModal").style.display = "block";
+
+            
+            document.getElementById("receiptForm").setAttribute('data-mode', 'edit');
+            document.getElementById("receiptForm").setAttribute('data-id', id); 
+        })
+        .catch(error => {
+            console.error('Error fetching receipt:', error);
+            alert('Error fetching receipt: ' + error.message);
+        });
+}
+
+
+function deleteReceipt(id) {
+    if (confirm("Are you sure you want to delete this receipt?")) {
+        fetch(`http://localhost:3000/receipts/${id}`, {
+            method: 'DELETE'
+        })
+        .then(handleResponse)
+        .then(data => {
+            alert("Receipt deleted!");
+            fetchReceipts(); 
+        })
+        .catch(error => {
+            console.error('Error deleting receipt:', error);
+            alert('Error deleting receipt: ' + error.message);
+        });
+    }
+}
+
+
+document.querySelector('.close').onclick = function() {
+    document.getElementById("receiptModal").style.display = "none";
+};
+
+
+function handleResponse(response) {
+    if (!response.ok) {
+        return response.json().then(err => {
+            throw new Error(err.message || 'API request failed');
+        });
+    }
+    return response.json();
+}
+</script>
+
+</body>
+</html>

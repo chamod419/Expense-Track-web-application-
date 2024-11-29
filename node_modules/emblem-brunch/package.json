@@ -1,0 +1,25 @@
+{
+  "name": "emblem-brunch",
+  "version": "0.1.1",
+  "description": "Adds Emblem.js support to brunch.",
+  "author": "Alex Matchneer (http://machty.github.com/)",
+  "homepage": "https://github.com/machty/emblem-brunch",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:machty/emblem-brunch.git"
+  },
+  "main": "./lib/index",
+  "scripts": {
+    "prepublish": "node setup.js prepublish",
+    "postpublish": "node setup.js postpublish",
+    "test": "node setup.js test"
+  },
+  "engines": {
+    "node": "~0.6.10 || 0.8 || 0.9"
+  },
+  "dependencies": {
+    "coffee-script": "1.4.0",
+    "jsdom": "0.2"
+  },
+  "devDependencies": {}
+}
